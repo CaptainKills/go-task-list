@@ -28,3 +28,14 @@ func Destroy() error {
 
 	return nil
 }
+
+func Exists() bool {
+	file, err := os.Open(DatabaseFilePath)
+	file.Close()
+
+	if err != nil {
+		return false
+	}
+
+	return true
+}
